@@ -37,7 +37,7 @@ RUN apt-get update && apt-get -y install \
 	net-tools \
 	git-core \
 	git \
-	dillo\
+	dillo
 
 # House cleaning
 RUN apt-get autoclean
