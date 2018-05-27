@@ -61,7 +61,3 @@ WORKDIR /scripts
 EXPOSE 8083
 
 CMD ["/usr/bin/supervisord"]
-
-RUN useradd -ms /bin/bash eda
-USER eda
-WORKDIR /home/eda
