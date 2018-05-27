@@ -22,7 +22,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # Add the octave repo
 RUN add-apt-repository ppa:octave/stable
 RUN add-apt-repository ppa:saltmakrell/ppa
-RUN add-apt-repository ppa:midori/ppa 
+#RUN add-apt-repository ppa:midori/ppa 
 
 # Installing apps (Note: git is here just in case noVNC needs it in launch.sh
 RUN apt-get update && apt-get -y install \
@@ -37,7 +37,7 @@ RUN apt-get update && apt-get -y install \
 	net-tools \
 	git-core \
 	git \
-	midori\
+	dillo\
 
 # House cleaning
 RUN apt-get autoclean
