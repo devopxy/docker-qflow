@@ -16,12 +16,13 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 ENV TZ=Europe/London
 ENV SCREEN_RESOLUTION 1024x768
+ENV VNC_PW vncpassword
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Add the octave repo
 RUN add-apt-repository ppa:octave/stable
 RUN add-apt-repository ppa:saltmakrell/ppa
-
+RUN add-apt-repository ppa:midori/ppa 
 
 # Installing apps (Note: git is here just in case noVNC needs it in launch.sh
 RUN apt-get update && apt-get -y install \
@@ -34,6 +35,7 @@ RUN apt-get update && apt-get -y install \
   qflow-tech-osu035 \
   qflow-tech-osu050 \ 
 	net-tools \
+	midori\
 	git-core \
 	git
 
@@ -59,3 +61,7 @@ WORKDIR /scripts
 EXPOSE 8083
 
 CMD ["/usr/bin/supervisord"]
+
+RUN useradd -ms /bin/bash eda
+USER eda
+WORKDIR /home/eda
