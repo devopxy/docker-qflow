@@ -35,9 +35,9 @@ RUN apt-get update && apt-get -y install \
   qflow-tech-osu035 \
   qflow-tech-osu050 \ 
 	net-tools \
-	midori\
 	git-core \
-	git
+	git \
+	midori\
 
 # House cleaning
 RUN apt-get autoclean
